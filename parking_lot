@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require_relative 'lib/parking_lot_base'
+
+parking_lot = ParkingLot.new
+if ARGV.empty?
+	while 1 do
+		input = gets.chomp
+		parking_lot.read_input(input)
+	end
+else
+	File.open(ARGV[0], "r") do |f|
+    f.each_line do |line|
+      parking_lot.read_input(line)
+  	end
+	end
+end
